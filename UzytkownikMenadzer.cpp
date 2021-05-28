@@ -47,3 +47,6 @@ void UzytkownikMenadzer::wypiszWszystkichUzytkownikow(){
     for(int i=0; i<ILOSC_UZYTKOWNIKOW; i++)
         cout<<uzytkownicy[i].pobierzLogin()<<endl;
 }
+void UzytkownikMenadzer::wczytajUzytkownikowZPliku(){
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+}
