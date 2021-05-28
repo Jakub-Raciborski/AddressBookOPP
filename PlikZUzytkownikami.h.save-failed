@@ -1,0 +1,21 @@
+#ifndef PLIKZUZYTKOWNIKAMI_H
+#define PLIKZUZYTKOWNIKAMI_H
+
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include "UzytkownikMenadzer.h"
+
+using namespace std;
+
+class PlikZUzytkownikami{
+    string nazwaPlikuZUzytkownikami;
+
+    bool czyPlikJestPusty(fstream &plikTekstowy);
+    string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
+public:
+    void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
+};
+
+#endif // PLIKZUZYTKOWNIKAMI_H
