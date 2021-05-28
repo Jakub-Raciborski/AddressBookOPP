@@ -2,7 +2,6 @@
 #define UZYTKOWNIKMENADZER_H
 
 #include <vector>
-
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
 #include "PlikZUzytkownikami.h"
@@ -22,6 +21,7 @@ public:
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
+    void wczytajUzytkownikowZPliku();
 
 };
 

@@ -8,8 +8,8 @@ using namespace std;
 class KsiazkaAdresowa{
     int idOstatniegoAdresata;
     int idUsunietegoAdresata;
-
     UzytkownikMenadzer uzytkownikMenadzer;
+
 public:
     KsiazkaAdresowa();
     void rejestracjaUzytkownika();
