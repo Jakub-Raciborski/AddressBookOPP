@@ -10,6 +10,8 @@ using namespace std;
 class MetodyPomocnicze{
 public:
     static string konwerjsaIntNaString(int liczba);
+    char wczytajZnak();
+    string wczytajLinie();
 };
 
 #endif // METODYPOMOCNICZE_H
