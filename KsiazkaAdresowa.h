@@ -8,16 +8,15 @@ using namespace std;
 class KsiazkaAdresowa{
     int idOstatniegoAdresata;
     int idUsunietegoAdresata;
+    int idZalogowanegoUzytkownika;
     UzytkownikMenadzer uzytkownikMenadzer;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenadzer(nazwaPlikuZUzytkownikami){
-        uzytkownikMenadzer.wczytajUzytkownikowZPliku();
-    };
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami);
 
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wyswietlMenuUzytkownika();
+    void wyswietlMenuGlowne();
 };
 
 #endif // KSIAZKAADRESOWA_H

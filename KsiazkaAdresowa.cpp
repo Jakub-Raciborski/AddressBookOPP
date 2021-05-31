@@ -1,11 +1,14 @@
 #include "KsiazkaAdresowa.h"
 
+KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami)
+ : uzytkownikMenadzer(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0){};
+
 void KsiazkaAdresowa::rejestracjaUzytkownika(){
     uzytkownikMenadzer.rejestracjaUzytkownika();
 }
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow(){
     uzytkownikMenadzer.wypiszWszystkichUzytkownikow();
 }
-void KsiazkaAdresowa::wyswietlMenuUzytkownika(){
+void KsiazkaAdresowa::wyswietlMenuGlowne(){
     uzytkownikMenadzer.wyswietlMenuGlowne();
 }
