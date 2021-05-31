@@ -11,14 +11,13 @@
 using namespace std;
 
 class PlikZUzytkownikami{
-    string nazwaPlikuZUzytkownikami;
-    fstream plikTekstowy;
+    const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;
 
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 public:
-    PlikZUzytkownikami();
+    PlikZUzytkownikami(string nazwaPlikuZUzytkownikami) : NAZWA_PLIKU_Z_UZYTKOWNIKAMI(nazwaPlikuZUzytkownikami){};
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     vector<Uzytkownik> wczytajUzytkownikowZPliku();
 };
