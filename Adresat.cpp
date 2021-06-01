@@ -3,6 +3,9 @@
 void Adresat::ustawID(int id){
     ID = id;
 }
+void Adresat::ustawIDUzytkownika(int idUzytkownika){
+    IDUzytkownika = idUzytkownika;
+}
 void Adresat::ustawImie(string Imie){
     imie=Imie;
 }
@@ -21,6 +24,9 @@ void Adresat::ustawEmail(string Email){
 int Adresat::pobierzID(){
     return ID;
 };
+int Adresat::pobierzIDUzytkownika(){
+    return IDUzytkownika;
+}
 string Adresat::pobierzImie(){
     return imie;
 }

@@ -1,6 +1,6 @@
 #include "UzytkownikMenadzer.h"
 UzytkownikMenadzer::UzytkownikMenadzer(string nazwaPlikuZUzytkownikami)
-: plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0){};
+    : plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0) {};
 
 void UzytkownikMenadzer::rejestracjaUzytkownika() {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -62,6 +62,9 @@ void UzytkownikMenadzer::wyswietlMenuGlowne() {
                 break;
             case '2':
                 idZalogowanegoUzytkownika = logowanieUzytkownika();
+                adresatMenadzer.ustawIDZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+                adresatMenadzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+                spytajUzytkownikaODzialanie();
                 break;
             case '9':
                 exit(0);
@@ -75,35 +78,30 @@ void UzytkownikMenadzer::wyswietlMenuGlowne() {
     }
 }
 void UzytkownikMenadzer::wybierzOpcjeZMenuGlownego() {
-        system("cls");
-        cout << "    >>> MENU  GLOWNE <<<" << endl;
-        cout << "---------------------------" << endl;
-        cout << "1. Rejestracja" << endl;
-        cout << "2. Logowanie" << endl;
-        cout << "9. Koniec programu" << endl;
-        cout << "---------------------------" << endl;
-        cout << "Twoj wybor: ";
-        wyborZMenuGlownego = metodyPomocnicze.wczytajZnak();
+    system("cls");
+    cout << "    >>> MENU  GLOWNE <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Rejestracja" << endl;
+    cout << "2. Logowanie" << endl;
+    cout << "9. Koniec programu" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Twoj wybor: ";
+    wyborZMenuGlownego = metodyPomocnicze.wczytajZnak();
 }
-int UzytkownikMenadzer::logowanieUzytkownika()
-{
+int UzytkownikMenadzer::logowanieUzytkownika() {
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
     login = metodyPomocnicze.wczytajLinie();
 
     const int ILOSC_UZYTKOWNIKOW = uzytkownicy.size();
-    for(int i=0; i<ILOSC_UZYTKOWNIKOW; i++)
-    {
-        if (uzytkownicy[i].pobierzLogin() == login)
-        {
-            for (int iloscProb = 3; iloscProb > 0; iloscProb--)
-            {
+    for(int i=0; i<ILOSC_UZYTKOWNIKOW; i++) {
+        if (uzytkownicy[i].pobierzLogin() == login) {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
                 haslo = metodyPomocnicze.wczytajLinie();
 
-                if (uzytkownicy[i].pobierzHaslo() == haslo)
-                {
+                if (uzytkownicy[i].pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     return uzytkownicy[i].pobierzID();
@@ -117,4 +115,11 @@ int UzytkownikMenadzer::logowanieUzytkownika()
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
     return 0;
+}
+void UzytkownikMenadzer::spytajUzytkownikaODzialanie() {
+    while(adresatMenadzer.pobierzIDZalogowanegoUzytkownika()>0) {
+        wyborZMenuUzytkownika = adresatMenadzer.wybierzOpcjeZMenuUzytkownika();
+        adresatMenadzer.przetwarzajDecyzjeUzytkownika(wyborZMenuUzytkownika);
+    }
+    idZalogowanegoUzytkownika = 0;
 }
