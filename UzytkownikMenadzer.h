@@ -5,6 +5,7 @@
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
 #include "PlikZUzytkownikami.h"
+#include "AdresatMenadzer.h"
 
 using namespace std;
 
@@ -14,6 +15,8 @@ class UzytkownikMenadzer{
     PlikZUzytkownikami plikZUzytkownikami;
     MetodyPomocnicze metodyPomocnicze;
     char wyborZMenuGlownego;
+    char wyborZMenuUzytkownika;
+    AdresatMenadzer adresatMenadzer;
 
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
@@ -27,6 +30,7 @@ public:
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
     void wyswietlMenuGlowne();
+    void spytajUzytkownikaODzialanie();
 };
 
 #endif // UZYTKOWNIKMENADZER_H

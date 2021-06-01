@@ -8,5 +8,6 @@ int main(){
     /*ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();*/
-    ksiazkaAdresowa.wyswietlMenuUzytkownika();
+    system("pause");
+    ksiazkaAdresowa.wyswietlMenuGlowne();
 }
