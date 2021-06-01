@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class UzytkownikMenadzer{
+class UzytkownikMenadzer {
     vector<Uzytkownik> uzytkownicy;
     int idZalogowanegoUzytkownika;
     PlikZUzytkownikami plikZUzytkownikami;
@@ -22,6 +22,8 @@ class UzytkownikMenadzer{
     bool czyIstniejeLogin(string login);
     void wybierzOpcjeZMenuGlownego();
     int logowanieUzytkownika();
+    void przetwarzajDecyzjeUzytkownika(char decyzja);
+    void zmianaHaslaZalogowanegoUzytkownika();
 
 public:
     UzytkownikMenadzer(string nazwaPlikuZUzytkownikami);

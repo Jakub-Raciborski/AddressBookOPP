@@ -1,15 +1,16 @@
 #include "KsiazkaAdresowa.h"
 
 KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami)
- : uzytkownikMenadzer(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0)
- {uzytkownikMenadzer.wczytajUzytkownikowZPliku();};
+    : uzytkownikMenadzer(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0) {
+    uzytkownikMenadzer.wczytajUzytkownikowZPliku();
+};
 
-void KsiazkaAdresowa::rejestracjaUzytkownika(){
+void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenadzer.rejestracjaUzytkownika();
 }
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow(){
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenadzer.wypiszWszystkichUzytkownikow();
 }
-void KsiazkaAdresowa::wyswietlMenuGlowne(){
+void KsiazkaAdresowa::wyswietlMenuGlowne() {
     uzytkownikMenadzer.wyswietlMenuGlowne();
 }

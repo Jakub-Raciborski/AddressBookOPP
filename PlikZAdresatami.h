@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class PlikZAdresatami{
+class PlikZAdresatami {
     string nazwaPlikuZAdresatami;
     vector<Adresat> adresaci;
     int idOstatniegoAdresata;
