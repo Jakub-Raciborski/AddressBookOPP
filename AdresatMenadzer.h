@@ -19,6 +19,8 @@ class AdresatMenadzer{
     void sprawdzNastepneWolneIDAdresata();
     void dodajAdresata();
     Adresat podajDaneNowegoAdresata();
+    void wyswietlWszystkichAdresatow();
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
     AdresatMenadzer();
