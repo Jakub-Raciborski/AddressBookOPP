@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class KsiazkaAdresowa{
+class KsiazkaAdresowa {
     int idOstatniegoAdresata;
     int idUsunietegoAdresata;
     int idZalogowanegoUzytkownika;

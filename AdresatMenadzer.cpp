@@ -35,35 +35,6 @@ void AdresatMenadzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
     adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
     nastepneWolneIDAdresata = plikZAdresatami.pobierzidOstatniegoAdresata() + 1;
 }
-void AdresatMenadzer::przetwarzajDecyzjeUzytkownika(char decyzja) {
-    switch (decyzja) {
-    case '1':
-        dodajAdresata();
-        break;
-    /*case '2':
-        wyszukajAdresatowPoImieniu(adresaci);
-        break;
-    case '3':
-        wyszukajAdresatowPoNazwisku(adresaci);
-        break;*/
-    case '4':
-        wyswietlWszystkichAdresatow();
-        break;
-    /*case '5':
-        idUsunietegoAdresata = usunAdresata(adresaci);
-        idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
-        break;
-    case '6':
-        edytujAdresata(adresaci);
-        break;*/
-    case '7':
-        // zmianaHaslaZalogowanegoUzytkownika(uzytkownicy, idZalogowanegoUzytkownika);
-        break;
-    case '8':
-        wylogujUzytkownika();
-        break;
-    }
-}
 void AdresatMenadzer::wylogujUzytkownika() {
     idZalogowanegoUzytkownika = 0;
     adresaci.clear();
@@ -107,27 +78,21 @@ Adresat AdresatMenadzer::podajDaneNowegoAdresata() {
 
     return adresat;
 }
-void AdresatMenadzer::wyswietlWszystkichAdresatow()
-{
+void AdresatMenadzer::wyswietlWszystkichAdresatow() {
     system("cls");
-    if (!adresaci.empty())
-    {
+    if (!adresaci.empty()) {
         cout << "             >>> ADRESACI <<<" << endl;
         cout << "-----------------------------------------------" << endl;
-        for (vector <Adresat> :: iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
-        {
+        for (vector <Adresat> :: iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
             wyswietlDaneAdresata(*itr);
         }
         cout << endl;
-    }
-    else
-    {
+    } else {
         cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
     }
     system("pause");
 }
-void AdresatMenadzer::wyswietlDaneAdresata(Adresat adresat)
-{
+void AdresatMenadzer::wyswietlDaneAdresata(Adresat adresat) {
     cout << endl << "Id:                 " << adresat.pobierzID() << endl;
     cout << "Imie:               " << adresat.pobierzImie() << endl;
     cout << "Nazwisko:           " << adresat.pobierzNazwisko() << endl;

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Adresat{
+class Adresat {
     int ID;
     int IDUzytkownika;
     string imie;

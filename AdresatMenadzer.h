@@ -8,18 +8,15 @@
 
 using namespace std;
 
-class AdresatMenadzer{
+class AdresatMenadzer {
     vector<Adresat> adresaci;
     int idZalogowanegoUzytkownika;
     int nastepneWolneIDAdresata;
     MetodyPomocnicze metodyPomocnicze;
     PlikZAdresatami plikZAdresatami;
 
-    void wylogujUzytkownika();
     void sprawdzNastepneWolneIDAdresata();
-    void dodajAdresata();
     Adresat podajDaneNowegoAdresata();
-    void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(Adresat adresat);
 
 public:
@@ -29,8 +26,9 @@ public:
 
     char wybierzOpcjeZMenuUzytkownika();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-    void przetwarzajDecyzjeUzytkownika(char decyzja);
-
+    void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
+    void wylogujUzytkownika();
 };
 
 #endif // ADRESATMENADZER
