@@ -8,21 +8,20 @@ using namespace std;
 
 class KsiazkaAdresowa {
     UzytkownikMenadzer uzytkownikMenadzer;
-    AdresatMenadzer adresatMenadzer; //nowe
-    int IDZalogowanegoUzytkownika; //nowe
+    AdresatMenadzer adresatMenadzer;
+    int IDZalogowanegoUzytkownika;
 
-    void ustawIDZalogowanegoUzytkownika(); //nowe
-    void przetwarzajDecyzjeUzytkownika(char decyzja); //nowe, skopiowane z UzytkownikMenadzer
+    void ustawIDZalogowanegoUzytkownika();
+    void przetwarzajDecyzjeUzytkownika(char decyzja);
+    void wyswietlMenuGlowne();
+    void przejdzDoMenuUzytkownika();
+    void spytajUzytkownikaODzialanie();
 
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami);
 
-    void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wyswietlMenuGlowne(); //moze do prywatnych
-    void uruchomProgram(); //nowe
-    void przejdzDoMenuUzytkownika(); //nowe, mo¿e do prywatnych
-    void spytajUzytkownikaODzialanie(); //nowe, skopiowane z UzytkownikMenadzer
+    void uruchomProgram();
 
 };
 #endif // KSIAZKAADRESOWA_H

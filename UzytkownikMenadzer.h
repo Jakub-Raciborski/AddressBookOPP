@@ -15,26 +15,22 @@ class UzytkownikMenadzer {
     PlikZUzytkownikami plikZUzytkownikami;
     MetodyPomocnicze metodyPomocnicze;
     char wyborZMenuGlownego;
-    //char wyborZMenuUzytkownika; przeniesione do KsiazkaAdresowa.cpp jako zmienna lokalna
-    AdresatMenadzer adresatMenadzer;
 
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
     void wybierzOpcjeZMenuGlownego();
     int logowanieUzytkownika();
-    void przetwarzajDecyzjeUzytkownika(char decyzja); //przeniesione do KsiazkaAdresowa
+    Uzytkownik podajDaneNowegoUzytkownika();
+    void rejestracjaUzytkownika();
+    void wczytajUzytkownikowZPliku();
 
 public:
     UzytkownikMenadzer(string nazwaPlikuZUzytkownikami);
-    int pobierzIDZalogowanegoUzytkownika();  //nowe
+    int pobierzIDZalogowanegoUzytkownika();
 
-    Uzytkownik podajDaneNowegoUzytkownika();
-    void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
     void wyswietlMenuGlowne();
-    void spytajUzytkownikaODzialanie(); //przeniesione do KsiazkaAdresowa
-    void zmianaHaslaZalogowanegoUzytkownika(); //przeniesione z prywatnych do publicznych
+    void zmienHaslaZalogowanegoUzytkownika(); //przeniesione z prywatnych do publicznych
     void wylogujUzytkownika(); //nowe
 };
 

@@ -12,8 +12,8 @@ class AdresatMenadzer {
     vector<Adresat> adresaci;
     int idZalogowanegoUzytkownika;
     int nastepneWolneIDAdresata;
-    MetodyPomocnicze metodyPomocnicze;
     PlikZAdresatami plikZAdresatami;
+    MetodyPomocnicze metodyPomocnicze;
 
     void sprawdzNastepneWolneIDAdresata();
     Adresat podajDaneNowegoAdresata();
@@ -24,8 +24,8 @@ public:
     void ustawIDZalogowanegoUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
     int pobierzIDZalogowanegoUzytkownika();
 
-    char wybierzOpcjeZMenuUzytkownika();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    char wybierzOpcjeZMenuUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     void wylogujUzytkownika();

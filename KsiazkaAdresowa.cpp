@@ -3,17 +3,12 @@
 KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami)
     : uzytkownikMenadzer(nazwaPlikuZUzytkownikami) {};
 
-void KsiazkaAdresowa::rejestracjaUzytkownika() {
-    uzytkownikMenadzer.rejestracjaUzytkownika();
-}
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenadzer.wypiszWszystkichUzytkownikow();
 }
 void KsiazkaAdresowa::wyswietlMenuGlowne() {
     uzytkownikMenadzer.wyswietlMenuGlowne();
 }
-
-/////////////////////////////////////////////
 void KsiazkaAdresowa::ustawIDZalogowanegoUzytkownika() {
     IDZalogowanegoUzytkownika = uzytkownikMenadzer.pobierzIDZalogowanegoUzytkownika();
 }
@@ -60,7 +55,7 @@ void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
         edytujAdresata(adresaci);
         break;*/
     case '7':
-        uzytkownikMenadzer.zmianaHaslaZalogowanegoUzytkownika();
+        uzytkownikMenadzer.zmienHaslaZalogowanegoUzytkownika();
         break;
     case '8':
         uzytkownikMenadzer.wylogujUzytkownika();
