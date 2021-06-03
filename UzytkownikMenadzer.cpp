@@ -1,6 +1,14 @@
 #include "UzytkownikMenadzer.h"
 UzytkownikMenadzer::UzytkownikMenadzer(string nazwaPlikuZUzytkownikami)
-    : plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0) {};
+    : plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0) {
+    wczytajUzytkownikowZPliku();
+};
+
+////////////////////////////////////////////
+int UzytkownikMenadzer::pobierzIDZalogowanegoUzytkownika() {
+    return idZalogowanegoUzytkownika;
+}
+////////////////////////////////////////////
 
 void UzytkownikMenadzer::rejestracjaUzytkownika() {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -53,29 +61,29 @@ void UzytkownikMenadzer::wczytajUzytkownikowZPliku() {
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 void UzytkownikMenadzer::wyswietlMenuGlowne() {
-    while (true) {
-        if (idZalogowanegoUzytkownika == 0) {
-            wybierzOpcjeZMenuGlownego();
-            switch (wyborZMenuGlownego) {
-            case '1':
-                rejestracjaUzytkownika();
-                break;
-            case '2':
-                idZalogowanegoUzytkownika = logowanieUzytkownika();
-                if(idZalogowanegoUzytkownika>0) {
-                    adresatMenadzer.ustawIDZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
-                    adresatMenadzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-                    spytajUzytkownikaODzialanie();
-                }
-                break;
-            case '9':
-                exit(0);
-                break;
-            default:
-                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
-                system("pause");
-                break;
-            }
+    // while (true) { Zmiana, nowy kod w liniach 66 i 67
+    //if (idZalogowanegoUzytkownika == 0) {
+    while (idZalogowanegoUzytkownika == 0) {
+        wybierzOpcjeZMenuGlownego();
+        switch (wyborZMenuGlownego) {
+        case '1':
+            rejestracjaUzytkownika();
+            break;
+        case '2':
+            idZalogowanegoUzytkownika = logowanieUzytkownika();
+            /*if(idZalogowanegoUzytkownika>0) {
+                adresatMenadzer.ustawIDZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+                adresatMenadzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+                spytajUzytkownikaODzialanie();
+            } Przeniesione do KsiazkaAdresowa.cpp*/
+            break;
+        case '9':
+            exit(0);
+            break;
+        default:
+            cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+            system("pause");
+            break;
         }
     }
 }
@@ -118,14 +126,14 @@ int UzytkownikMenadzer::logowanieUzytkownika() {
     system("pause");
     return 0;
 }
-void UzytkownikMenadzer::spytajUzytkownikaODzialanie() {
+/*void UzytkownikMenadzer::spytajUzytkownikaODzialanie() {
     while(adresatMenadzer.pobierzIDZalogowanegoUzytkownika()>0) {
         wyborZMenuUzytkownika = adresatMenadzer.wybierzOpcjeZMenuUzytkownika();
         przetwarzajDecyzjeUzytkownika(wyborZMenuUzytkownika);
     }
     idZalogowanegoUzytkownika = 0;
-}
-void UzytkownikMenadzer::przetwarzajDecyzjeUzytkownika(char decyzja) {
+} Przeniesione do KsiazkaAdresowa*/
+/*void UzytkownikMenadzer::przetwarzajDecyzjeUzytkownika(char decyzja) {
     switch (decyzja) {
     case '1':
         adresatMenadzer.dodajAdresata();
@@ -136,24 +144,24 @@ void UzytkownikMenadzer::przetwarzajDecyzjeUzytkownika(char decyzja) {
     case '3':
         wyszukajAdresatowPoNazwisku(adresaci);
         break;*/
-    case '4':
-        adresatMenadzer.wyswietlWszystkichAdresatow();
-        break;
-    /*case '5':
-        idUsunietegoAdresata = usunAdresata(adresaci);
-        idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
-        break;
-    case '6':
-        edytujAdresata(adresaci);
-        break;*/
-    case '7':
-        zmianaHaslaZalogowanegoUzytkownika();
-        break;
-    case '8':
-        adresatMenadzer.wylogujUzytkownika();
-        break;
-    }
+/* case '4':
+     adresatMenadzer.wyswietlWszystkichAdresatow();
+     break;*/
+/*case '5':
+    idUsunietegoAdresata = usunAdresata(adresaci);
+    idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+    break;
+case '6':
+    edytujAdresata(adresaci);
+    break;*/
+/*case '7':
+    zmianaHaslaZalogowanegoUzytkownika();
+    break;
+case '8':
+    adresatMenadzer.wylogujUzytkownika();
+    break;
 }
+}Przeniesione do ksiazkaAdresowa*/
 void UzytkownikMenadzer::zmianaHaslaZalogowanegoUzytkownika() {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
@@ -168,3 +176,8 @@ void UzytkownikMenadzer::zmianaHaslaZalogowanegoUzytkownika() {
     }
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
+////////////////////////////////////////////////////////
+void UzytkownikMenadzer::wylogujUzytkownika() {
+    idZalogowanegoUzytkownika = 0;
+}
+////////////////////////////////////////////////////////

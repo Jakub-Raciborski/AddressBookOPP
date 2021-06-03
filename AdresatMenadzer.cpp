@@ -1,8 +1,6 @@
 #include "AdresatMenadzer.h"
 
-AdresatMenadzer::AdresatMenadzer() {
-    PlikZAdresatami plikZAdresatami;
-};
+AdresatMenadzer::AdresatMenadzer() {};
 
 void AdresatMenadzer::ustawIDZalogowanegoUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA) {
     idZalogowanegoUzytkownika = ID_ZALOGOWANEGO_UZYTKOWNIKA;
