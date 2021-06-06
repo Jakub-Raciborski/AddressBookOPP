@@ -32,11 +32,13 @@
 - IDZalogowanegoUzytkownika : Integer
 -
 &lt;&lt;construct&gt;&gt; KsiazkaAdresowa()
+&lt;&lt;destroy&gt;&gt; ~KsiazkaAdresowa()
 - wyswietlMenuGlowne() : void
 - ustawIDZalogowanegoUzytkownika() : void
 - przetwarzajDezycjeUzytkownika() : void
 - przejdzDoMenuUzytkownika() : void
 - spytajUzytkownikaODzialanie() : void
+- wylogujUzytkownika() : void
 + wypiszWszystkichUzytkownikow() : void
 + uruchomProgram() : void</panel_attributes>
     <additional_attributes/>
@@ -51,7 +53,7 @@
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 -
-- nazwaPlikuZUzytkownikami : String
+- NAZWA_PLIKU_Z_UZYTKOWNIKAMI : String
 -
 &lt;&lt;constructor&gt;&gt; PLikZUzytkownikami()
 - zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami () : String
@@ -140,7 +142,7 @@
     </coordinates>
     <panel_attributes>PlikZAdresatami
 -
-- nazwaPlikuZAdresatami : String
+- NAZWA_PLIKU_Z_ADRESATAMI : String
 - adresaci : vector&lt;Adresat&gt;
 - metodyPomocnicze : MetodyPomocnicze
 -
@@ -177,7 +179,6 @@
 - logowanieUzytkownika() : Integer
 - podajDaneNowegoUzytkownika() : Uzytkownik
 - rejestracjaUzytkownika() : Uzytkownik
-- wczytajUzytkownikowZPliku() : void
 + wypiszWszystkichUzytkownikow () : void
 + wyswietlMenuGlowne() : void
 + zmienHasloZalogowanegoUzytkownika() : void

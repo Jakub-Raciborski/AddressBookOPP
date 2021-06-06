@@ -1,7 +1,14 @@
 #include "KsiazkaAdresowa.h"
 
-KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami)
-    : uzytkownikMenadzer(nazwaPlikuZUzytkownikami) {};
+KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
+    : uzytkownikMenadzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami),
+    IDZalogowanegoUzytkownika(0){
+    adresatMenadzer = NULL;
+};
+KsiazkaAdresowa::~KsiazkaAdresowa() {
+    delete adresatMenadzer;
+    adresatMenadzer = NULL;
+}
 
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenadzer.wypiszWszystkichUzytkownikow();
@@ -22,13 +29,13 @@ void KsiazkaAdresowa::uruchomProgram() {
     }
 }
 void KsiazkaAdresowa::przejdzDoMenuUzytkownika() {
-    adresatMenadzer.ustawIDZalogowanegoUzytkownika(IDZalogowanegoUzytkownika);
-    adresatMenadzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    adresatMenadzer = new AdresatMenadzer(NAZWA_PLIKU_Z_ADRESATAMI, IDZalogowanegoUzytkownika);
+    adresatMenadzer->wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     spytajUzytkownikaODzialanie();
 }
 void KsiazkaAdresowa::spytajUzytkownikaODzialanie() {
-    while(adresatMenadzer.pobierzIDZalogowanegoUzytkownika()>0) {
-        char wyborZMenuUzytkownika = adresatMenadzer.wybierzOpcjeZMenuUzytkownika();
+    while(adresatMenadzer->pobierzIDZalogowanegoUzytkownika()>0) {
+        char wyborZMenuUzytkownika = adresatMenadzer->wybierzOpcjeZMenuUzytkownika();
         przetwarzajDecyzjeUzytkownika(wyborZMenuUzytkownika);
     }
     IDZalogowanegoUzytkownika = 0;
@@ -36,7 +43,7 @@ void KsiazkaAdresowa::spytajUzytkownikaODzialanie() {
 void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
     switch (decyzja) {
     case '1':
-        adresatMenadzer.dodajAdresata();
+        adresatMenadzer->dodajAdresata();
         break;
     /*case '2':
         wyszukajAdresatowPoImieniu(adresaci);
@@ -45,7 +52,7 @@ void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
         wyszukajAdresatowPoNazwisku(adresaci);
         break;*/
     case '4':
-        adresatMenadzer.wyswietlWszystkichAdresatow();
+        adresatMenadzer->wyswietlWszystkichAdresatow();
         break;
     /*case '5':
         idUsunietegoAdresata = usunAdresata(adresaci);
@@ -58,8 +65,13 @@ void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
         uzytkownikMenadzer.zmienHaslaZalogowanegoUzytkownika();
         break;
     case '8':
-        uzytkownikMenadzer.wylogujUzytkownika();
-        adresatMenadzer.wylogujUzytkownika();
+        wylogujUzytkownika();
         break;
     }
+}
+void KsiazkaAdresowa::wylogujUzytkownika(){
+    uzytkownikMenadzer.wylogujUzytkownika();
+    adresatMenadzer->wylogujUzytkownika();
+    delete adresatMenadzer;
+    //adresatMenadzer = NULL;  ZAWIESZA PROGRAM
 }

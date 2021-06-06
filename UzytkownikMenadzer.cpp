@@ -1,7 +1,7 @@
 #include "UzytkownikMenadzer.h"
 UzytkownikMenadzer::UzytkownikMenadzer(string nazwaPlikuZUzytkownikami)
     : plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0) {
-    wczytajUzytkownikowZPliku();
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 };
 
 int UzytkownikMenadzer::pobierzIDZalogowanegoUzytkownika() {
@@ -54,9 +54,6 @@ void UzytkownikMenadzer::wypiszWszystkichUzytkownikow() {
     const int ILOSC_UZYTKOWNIKOW = uzytkownicy.size();
     for(int i=0; i<ILOSC_UZYTKOWNIKOW; i++)
         cout<<uzytkownicy[i].pobierzLogin()<<endl;
-}
-void UzytkownikMenadzer::wczytajUzytkownikowZPliku() {
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 void UzytkownikMenadzer::wyswietlMenuGlowne() {
     while (idZalogowanegoUzytkownika == 0) {

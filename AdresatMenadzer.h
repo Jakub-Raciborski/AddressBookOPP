@@ -20,8 +20,7 @@ class AdresatMenadzer {
     void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    AdresatMenadzer();
-    void ustawIDZalogowanegoUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    AdresatMenadzer(string nazwaPlikuZAdresatami, int IDZalogowanegoUzytkownika);
     int pobierzIDZalogowanegoUzytkownika();
 
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
