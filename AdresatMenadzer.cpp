@@ -1,12 +1,8 @@
 #include "AdresatMenadzer.h"
 
-AdresatMenadzer::AdresatMenadzer() {
-    PlikZAdresatami plikZAdresatami;
-};
+AdresatMenadzer::AdresatMenadzer(string nazwaPlikuZAdresatami, int IDZalogowanegoUzytkownika)
+    : plikZAdresatami(nazwaPlikuZAdresatami), idZalogowanegoUzytkownika(IDZalogowanegoUzytkownika){};
 
-void AdresatMenadzer::ustawIDZalogowanegoUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA) {
-    idZalogowanegoUzytkownika = ID_ZALOGOWANEGO_UZYTKOWNIKA;
-}
 int AdresatMenadzer::pobierzIDZalogowanegoUzytkownika() {
     return idZalogowanegoUzytkownika;
 }

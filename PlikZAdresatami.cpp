@@ -1,14 +1,14 @@
 #include "PlikZAdresatami.h"
 
-PlikZAdresatami::PlikZAdresatami()
-    :   nazwaPlikuZAdresatami("Adresaci.txt") {};
+PlikZAdresatami::PlikZAdresatami(string nazwaPlikuZAdresatami)
+    :   NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {};
 
 vector<Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) {
     Adresat adresat;
     idOstatniegoAdresata = 0;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami, ios::in);
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI, ios::in);
 
     if (plikTekstowy.good() == true) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
@@ -84,7 +84,7 @@ void PlikZAdresatami::wyczyscDane() {
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami, ios::out | ios::app);
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI, ios::out | ios::app);
 
     if (plikTekstowy.good() == true) {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);

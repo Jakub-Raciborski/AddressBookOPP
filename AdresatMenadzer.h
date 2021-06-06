@@ -12,20 +12,19 @@ class AdresatMenadzer {
     vector<Adresat> adresaci;
     int idZalogowanegoUzytkownika;
     int nastepneWolneIDAdresata;
-    MetodyPomocnicze metodyPomocnicze;
     PlikZAdresatami plikZAdresatami;
+    MetodyPomocnicze metodyPomocnicze;
 
     void sprawdzNastepneWolneIDAdresata();
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    AdresatMenadzer();
-    void ustawIDZalogowanegoUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    AdresatMenadzer(string nazwaPlikuZAdresatami, int IDZalogowanegoUzytkownika);
     int pobierzIDZalogowanegoUzytkownika();
 
-    char wybierzOpcjeZMenuUzytkownika();
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    char wybierzOpcjeZMenuUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     void wylogujUzytkownika();

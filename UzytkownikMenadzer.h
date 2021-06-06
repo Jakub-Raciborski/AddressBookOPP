@@ -15,24 +15,23 @@ class UzytkownikMenadzer {
     PlikZUzytkownikami plikZUzytkownikami;
     MetodyPomocnicze metodyPomocnicze;
     char wyborZMenuGlownego;
-    char wyborZMenuUzytkownika;
-    AdresatMenadzer adresatMenadzer;
 
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
     void wybierzOpcjeZMenuGlownego();
     int logowanieUzytkownika();
-    void przetwarzajDecyzjeUzytkownika(char decyzja);
-    void zmianaHaslaZalogowanegoUzytkownika();
+    Uzytkownik podajDaneNowegoUzytkownika();
+    void rejestracjaUzytkownika();
+    void wczytajUzytkownikowZPliku();
 
 public:
     UzytkownikMenadzer(string nazwaPlikuZUzytkownikami);
-    Uzytkownik podajDaneNowegoUzytkownika();
-    void rejestracjaUzytkownika();
+    int pobierzIDZalogowanegoUzytkownika();
+
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
     void wyswietlMenuGlowne();
-    void spytajUzytkownikaODzialanie();
+    void zmienHaslaZalogowanegoUzytkownika(); //przeniesione z prywatnych do publicznych
+    void wylogujUzytkownika(); //nowe
 };
 
 #endif // UZYTKOWNIKMENADZER_H
