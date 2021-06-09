@@ -1,8 +1,4 @@
 #include "UzytkownikMenadzer.h"
-UzytkownikMenadzer::UzytkownikMenadzer(string nazwaPlikuZUzytkownikami)
-    : plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0) {
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-};
 
 int UzytkownikMenadzer::pobierzIDZalogowanegoUzytkownika() {
     return idZalogowanegoUzytkownika;
@@ -84,20 +80,20 @@ void UzytkownikMenadzer::wybierzOpcjeZMenuGlownego() {
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    wyborZMenuGlownego = metodyPomocnicze.wczytajZnak();
+    wyborZMenuGlownego = MetodyPomocnicze::wczytajZnak();
 }
 int UzytkownikMenadzer::logowanieUzytkownika() {
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
-    login = metodyPomocnicze.wczytajLinie();
+    login = MetodyPomocnicze::wczytajLinie();
 
     const int ILOSC_UZYTKOWNIKOW = uzytkownicy.size();
     for(int i=0; i<ILOSC_UZYTKOWNIKOW; i++) {
         if (uzytkownicy[i].pobierzLogin() == login) {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                haslo = metodyPomocnicze.wczytajLinie();
+                haslo = MetodyPomocnicze::wczytajLinie();
 
                 if (uzytkownicy[i].pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
@@ -117,7 +113,7 @@ int UzytkownikMenadzer::logowanieUzytkownika() {
 void UzytkownikMenadzer::zmienHaslaZalogowanegoUzytkownika() {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    noweHaslo = metodyPomocnicze.wczytajLinie();
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++) {
         if (itr -> pobierzID() == idZalogowanegoUzytkownika) {

@@ -13,7 +13,6 @@ class UzytkownikMenadzer {
     vector<Uzytkownik> uzytkownicy;
     int idZalogowanegoUzytkownika;
     PlikZUzytkownikami plikZUzytkownikami;
-    MetodyPomocnicze metodyPomocnicze;
     char wyborZMenuGlownego;
 
     int pobierzIdNowegoUzytkownika();
@@ -25,7 +24,10 @@ class UzytkownikMenadzer {
     void wczytajUzytkownikowZPliku();
 
 public:
-    UzytkownikMenadzer(string nazwaPlikuZUzytkownikami);
+    UzytkownikMenadzer(string nazwaPlikuZUzytkownikami)
+        : plikZUzytkownikami(nazwaPlikuZUzytkownikami), idZalogowanegoUzytkownika(0) {
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
     int pobierzIDZalogowanegoUzytkownika();
 
     void wypiszWszystkichUzytkownikow();

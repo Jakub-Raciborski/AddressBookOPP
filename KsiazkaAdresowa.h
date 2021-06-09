@@ -20,8 +20,15 @@ class KsiazkaAdresowa {
     void wylogujUzytkownika();
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami);
-    ~KsiazkaAdresowa();
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
+        : uzytkownikMenadzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami),
+          IDZalogowanegoUzytkownika(0) {
+        adresatMenadzer = NULL;
+    };
+    ~KsiazkaAdresowa() {
+        delete adresatMenadzer;
+        adresatMenadzer = NULL;
+    };
 
     void wypiszWszystkichUzytkownikow();
     void uruchomProgram();

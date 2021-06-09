@@ -1,15 +1,5 @@
 #include "KsiazkaAdresowa.h"
 
-KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
-    : uzytkownikMenadzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami),
-    IDZalogowanegoUzytkownika(0){
-    adresatMenadzer = NULL;
-};
-KsiazkaAdresowa::~KsiazkaAdresowa() {
-    delete adresatMenadzer;
-    adresatMenadzer = NULL;
-}
-
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenadzer.wypiszWszystkichUzytkownikow();
 }
@@ -34,11 +24,8 @@ void KsiazkaAdresowa::przejdzDoMenuUzytkownika() {
     spytajUzytkownikaODzialanie();
 }
 void KsiazkaAdresowa::spytajUzytkownikaODzialanie() {
-    while(adresatMenadzer->pobierzIDZalogowanegoUzytkownika()>0) {
-        char wyborZMenuUzytkownika = adresatMenadzer->wybierzOpcjeZMenuUzytkownika();
-        przetwarzajDecyzjeUzytkownika(wyborZMenuUzytkownika);
-    }
-    IDZalogowanegoUzytkownika = 0;
+    char wyborZMenuUzytkownika = adresatMenadzer->wybierzOpcjeZMenuUzytkownika();
+    przetwarzajDecyzjeUzytkownika(wyborZMenuUzytkownika);
 }
 void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
     switch (decyzja) {
@@ -69,9 +56,10 @@ void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
         break;
     }
 }
-void KsiazkaAdresowa::wylogujUzytkownika(){
+void KsiazkaAdresowa::wylogujUzytkownika() {
+    IDZalogowanegoUzytkownika = 0;
     uzytkownikMenadzer.wylogujUzytkownika();
     adresatMenadzer->wylogujUzytkownika();
     delete adresatMenadzer;
-    //adresatMenadzer = NULL;  ZAWIESZA PROGRAM
+    adresatMenadzer = NULL;
 }

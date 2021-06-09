@@ -13,14 +13,14 @@ class AdresatMenadzer {
     int idZalogowanegoUzytkownika;
     int nastepneWolneIDAdresata;
     PlikZAdresatami plikZAdresatami;
-    MetodyPomocnicze metodyPomocnicze;
 
     void sprawdzNastepneWolneIDAdresata();
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    AdresatMenadzer(string nazwaPlikuZAdresatami, int IDZalogowanegoUzytkownika);
+    AdresatMenadzer(string nazwaPlikuZAdresatami, int IDZalogowanegoUzytkownika)
+        : plikZAdresatami(nazwaPlikuZAdresatami), idZalogowanegoUzytkownika(IDZalogowanegoUzytkownika) {};
     int pobierzIDZalogowanegoUzytkownika();
 
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
