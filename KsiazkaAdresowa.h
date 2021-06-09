@@ -14,8 +14,6 @@ class KsiazkaAdresowa {
 
     void ustawIDZalogowanegoUzytkownika();
     void przetwarzajDecyzjeUzytkownika(char decyzja);
-    void wyswietlMenuGlowne();
-    void przejdzDoMenuUzytkownika();
     void spytajUzytkownikaODzialanie();
     void wylogujUzytkownika();
 
@@ -31,7 +29,7 @@ public:
     };
 
     void wypiszWszystkichUzytkownikow();
-    void uruchomProgram();
+    void wyswietlMenuGlowne();
 
 };
 #endif // KSIAZKAADRESOWA_H

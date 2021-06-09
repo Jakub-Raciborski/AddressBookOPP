@@ -3,25 +3,20 @@
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenadzer.wypiszWszystkichUzytkownikow();
 }
-void KsiazkaAdresowa::wyswietlMenuGlowne() {
-    uzytkownikMenadzer.wyswietlMenuGlowne();
-}
 void KsiazkaAdresowa::ustawIDZalogowanegoUzytkownika() {
     IDZalogowanegoUzytkownika = uzytkownikMenadzer.pobierzIDZalogowanegoUzytkownika();
 }
-void KsiazkaAdresowa::uruchomProgram() {
+void KsiazkaAdresowa::wyswietlMenuGlowne() {
     while(true) {
         ustawIDZalogowanegoUzytkownika();
         if(IDZalogowanegoUzytkownika == 0)
-            wyswietlMenuGlowne();
-        else
-            przejdzDoMenuUzytkownika();
+            uzytkownikMenadzer.wyswietlMenuGlowne();
+        else {
+            adresatMenadzer = new AdresatMenadzer(NAZWA_PLIKU_Z_ADRESATAMI, IDZalogowanegoUzytkownika);
+            adresatMenadzer->wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+            spytajUzytkownikaODzialanie();
+        }
     }
-}
-void KsiazkaAdresowa::przejdzDoMenuUzytkownika() {
-    adresatMenadzer = new AdresatMenadzer(NAZWA_PLIKU_Z_ADRESATAMI, IDZalogowanegoUzytkownika);
-    adresatMenadzer->wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-    spytajUzytkownikaODzialanie();
 }
 void KsiazkaAdresowa::spytajUzytkownikaODzialanie() {
     char wyborZMenuUzytkownika = adresatMenadzer->wybierzOpcjeZMenuUzytkownika();

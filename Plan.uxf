@@ -33,14 +33,12 @@
 -
 &lt;&lt;construct&gt;&gt; KsiazkaAdresowa()
 &lt;&lt;destroy&gt;&gt; ~KsiazkaAdresowa()
-- wyswietlMenuGlowne() : void
 - ustawIDZalogowanegoUzytkownika() : void
 - przetwarzajDezycjeUzytkownika() : void
-- przejdzDoMenuUzytkownika() : void
 - spytajUzytkownikaODzialanie() : void
 - wylogujUzytkownika() : void
 + wypiszWszystkichUzytkownikow() : void
-+ uruchomProgram() : void</panel_attributes>
++ wyswietlMenuGlowne() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
