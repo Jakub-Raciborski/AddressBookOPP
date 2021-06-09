@@ -1,8 +1,5 @@
 #include "PlikZAdresatami.h"
 
-PlikZAdresatami::PlikZAdresatami(string nazwaPlikuZAdresatami)
-    :   NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {};
-
 vector<Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) {
     Adresat adresat;
     idOstatniegoAdresata = 0;

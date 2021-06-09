@@ -21,7 +21,8 @@ class PlikZAdresatami {
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 
 public:
-    PlikZAdresatami(string nazwaPlikuZAdresatami);
+    PlikZAdresatami(string nazwaPlikuZAdresatami)
+        :   NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {};
     int pobierzidOstatniegoAdresata();
 
     vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);

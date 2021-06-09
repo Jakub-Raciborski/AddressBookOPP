@@ -1,8 +1,5 @@
 #include "AdresatMenadzer.h"
 
-AdresatMenadzer::AdresatMenadzer(string nazwaPlikuZAdresatami, int IDZalogowanegoUzytkownika)
-    : plikZAdresatami(nazwaPlikuZAdresatami), idZalogowanegoUzytkownika(IDZalogowanegoUzytkownika){};
-
 int AdresatMenadzer::pobierzIDZalogowanegoUzytkownika() {
     return idZalogowanegoUzytkownika;
 }
@@ -23,7 +20,7 @@ char AdresatMenadzer::wybierzOpcjeZMenuUzytkownika() {
     cout << "8. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    wybor = metodyPomocnicze.wczytajZnak();
+    wybor = MetodyPomocnicze::wczytajZnak();
 
     return wybor;
 }
@@ -54,23 +51,23 @@ Adresat AdresatMenadzer::podajDaneNowegoAdresata() {
     adresat.ustawIDUzytkownika(idZalogowanegoUzytkownika);
 
     cout << "Podaj imie: ";
-    imie = metodyPomocnicze.wczytajLinie();
-    imie = metodyPomocnicze.zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
+    imie = MetodyPomocnicze::wczytajLinie();
+    imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
     adresat.ustawImie(imie);
 
     cout << "Podaj nazwisko: ";
-    nazwisko = metodyPomocnicze.wczytajLinie();
-    nazwisko = metodyPomocnicze.zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
+    nazwisko = MetodyPomocnicze::wczytajLinie();
+    nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
     adresat.ustawNazwisko(nazwisko);
 
     cout << "Podaj numer telefonu: ";
-    adresat.ustawNumerTelefonu(metodyPomocnicze.wczytajLinie());
+    adresat.ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj email: ";
-    adresat.ustawEmail(metodyPomocnicze.wczytajLinie());
+    adresat.ustawEmail(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj adres: ";
-    adresat.ustawAdres(metodyPomocnicze.wczytajLinie());
+    adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
 
     return adresat;
 }

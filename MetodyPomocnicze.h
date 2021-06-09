@@ -11,12 +11,12 @@ using namespace std;
 class MetodyPomocnicze {
 public:
     static string konwerjsaIntNaString(int liczba);
-    char wczytajZnak();
-    string wczytajLinie();
-    int konwersjaStringNaInt(string liczba);
-    string pobierzLiczbe(string tekst, int pozycjaZnaku);
-    string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
-    bool czyPlikJestPusty(fstream &plik);
+    static char wczytajZnak();
+    static string wczytajLinie();
+    static int konwersjaStringNaInt(string liczba);
+    static string pobierzLiczbe(string tekst, int pozycjaZnaku);
+    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    static bool czyPlikJestPusty(fstream &plik);
 };
 
 #endif // METODYPOMOCNICZE_H

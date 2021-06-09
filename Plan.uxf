@@ -118,7 +118,6 @@
 - idZalogowanegoUzytkownika : Integer
 - nastepneWolneIDAdresata : Integer
 - plikZAdresatami : PlikZAdresatami
-- metodyPomocnicze : MetodyPomocnicze
 -
 &lt;&lt;constructor&gt;&gt; AdresatMenadzer()
 - sprawdzNastepneWolneIDAdresata() : void
@@ -169,7 +168,6 @@
 - idZalogowanegoUzytkownika : Integer
 - uzytkownicy : vector&lt;Uzytkownik&gt;
 - plikZUzytkownikami : PlikZUzytkownikami
-- metodyPomocnicze : MetodyPomocnicze
 - wyborZMenuGlownego : Character
 -
 &lt;&lt;construct&gt;&gt; UzytkownikMenadzer()
