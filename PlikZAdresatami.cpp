@@ -125,7 +125,39 @@ void PlikZAdresatami::usunWybranaLinieWPliku(const int ID_USUWANEGO_ADRESATA) {
             continue;
         else if(IDSprawdzanegoUzytkownika != ID_USUWANEGO_ADRESATA && wykonanoPierwszyWpisDoPlikuTymczasowego)
             tymczasowyPlikTekstowy<<endl<<liniaTekstu;
-        else{
+        else {
+            tymczasowyPlikTekstowy<<liniaTekstu;
+            wykonanoPierwszyWpisDoPlikuTymczasowego = true;
+        }
+    }
+    odczytywanyPlikTekstowy.close();
+    tymczasowyPlikTekstowy.close();
+
+    PlikTekstowy::usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
+    PlikTekstowy::zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU_Z_ADRESATAMI);
+}
+void PlikZAdresatami::edytujWybranaLinieWPliku(const int ID_EDYTOWANEGO_ADRESATA, Adresat adresat) {
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string liniaTekstu = "", nazwaTymczasowegoPlikuZAdresatami = "plikTymczasowy.txt";
+    int IDSprawdzanegoUzytkownika = 0;
+    bool wykonanoPierwszyWpisDoPlikuTymczasowego = false;
+    const string LINIA_Z_DANYMI_ADRESATA_ODDZIELONE_PIONOWYMI_KRESKAMI = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI, ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami, ios::out | ios::app);
+
+    while(getline(odczytywanyPlikTekstowy,liniaTekstu)) {
+        IDSprawdzanegoUzytkownika = MetodyPomocnicze::zwrocLiczbeZnajdujacaSieNaPoczatkuZmiennejString(liniaTekstu);
+        if(IDSprawdzanegoUzytkownika == ID_EDYTOWANEGO_ADRESATA && !wykonanoPierwszyWpisDoPlikuTymczasowego) {
+            tymczasowyPlikTekstowy<<LINIA_Z_DANYMI_ADRESATA_ODDZIELONE_PIONOWYMI_KRESKAMI;
+            wykonanoPierwszyWpisDoPlikuTymczasowego = true;
+        }
+        else if(IDSprawdzanegoUzytkownika == ID_EDYTOWANEGO_ADRESATA && wykonanoPierwszyWpisDoPlikuTymczasowego){
+            tymczasowyPlikTekstowy<<endl<<LINIA_Z_DANYMI_ADRESATA_ODDZIELONE_PIONOWYMI_KRESKAMI;
+        }
+        else if(IDSprawdzanegoUzytkownika != ID_EDYTOWANEGO_ADRESATA && wykonanoPierwszyWpisDoPlikuTymczasowego)
+            tymczasowyPlikTekstowy<<endl<<liniaTekstu;
+        else {
             tymczasowyPlikTekstowy<<liniaTekstu;
             wykonanoPierwszyWpisDoPlikuTymczasowego = true;
         }

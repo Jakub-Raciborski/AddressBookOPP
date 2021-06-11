@@ -30,6 +30,7 @@ public:
     void wyczyscDane();
     void dopiszAdresataDoPliku(Adresat adresat);
     void usunWybranaLinieWPliku(const int ID_USUWANEGO_ADRESATA);
+    void edytujWybranaLinieWPliku(const int ID_EDYTOWANEGO_ADRESATA, Adresat adresat);
 
 };
 
