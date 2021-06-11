@@ -27,10 +27,10 @@ void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
     case '1':
         adresatMenadzer->dodajAdresata();
         break;
-    /*case '2':
-        wyszukajAdresatowPoImieniu(adresaci);
+    case '2':
+        adresatMenadzer->wyszukajAdresatowPoImieniu();
         break;
-    case '3':
+    /*case '3':
         wyszukajAdresatowPoNazwisku(adresaci);
         break;*/
     case '4':

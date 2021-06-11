@@ -121,12 +121,13 @@
 - sprawdzNastepneWolneIDAdresata() : void
 - podajDaneNowegoAdresata() : Adresat
 - wyswietlDanegoAdresata() : void
+- wyswietlIloscWyszukanychAdresatow() : void
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku() : void
 + wybierzOpcjeZMenuUzytkownika() : Char
 + dodajAdresata() : void
 + wyswietlWszystkichAdresatow() : void
 + wylogujUzytkownika() : void
-</panel_attributes>
++ wyszukajAdresatowPoImieniu() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

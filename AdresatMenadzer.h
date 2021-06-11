@@ -17,6 +17,7 @@ class AdresatMenadzer {
     void sprawdzNastepneWolneIDAdresata();
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
 public:
     AdresatMenadzer(string nazwaPlikuZAdresatami, int IDZalogowanegoUzytkownika)
@@ -28,6 +29,7 @@ public:
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     void wylogujUzytkownika();
+    void wyszukajAdresatowPoImieniu();
 };
 
 #endif // ADRESATMENADZER
