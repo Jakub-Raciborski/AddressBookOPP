@@ -30,6 +30,7 @@ public:
     void wyswietlWszystkichAdresatow();
     void wylogujUzytkownika();
     void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 };
 
 #endif // ADRESATMENADZER
