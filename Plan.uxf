@@ -127,7 +127,8 @@
 + dodajAdresata() : void
 + wyswietlWszystkichAdresatow() : void
 + wylogujUzytkownika() : void
-+ wyszukajAdresatowPoImieniu() : void</panel_attributes>
++ wyszukajAdresatowPoImieniu() : void
++  wyszukajAdresatowPoNazwisku() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
