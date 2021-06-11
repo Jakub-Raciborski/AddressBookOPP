@@ -121,8 +121,11 @@ void PlikZAdresatami::usunWybranaLinieWPliku(const int ID_USUWANEGO_ADRESATA) {
 
     while(getline(odczytywanyPlikTekstowy,liniaTekstu)) {
         IDSprawdzanegoUzytkownika = MetodyPomocnicze::zwrocLiczbeZnajdujacaSieNaPoczatkuZmiennejString(liniaTekstu);
-        if(IDSprawdzanegoUzytkownika == ID_USUWANEGO_ADRESATA)
+        if(IDSprawdzanegoUzytkownika == ID_USUWANEGO_ADRESATA){
             continue;
+         if(IDSprawdzanegoUzytkownika == idOstatniegoAdresata)
+                idOstatniegoAdresata--;
+        }
         else if(IDSprawdzanegoUzytkownika != ID_USUWANEGO_ADRESATA && wykonanoPierwszyWpisDoPlikuTymczasowego)
             tymczasowyPlikTekstowy<<endl<<liniaTekstu;
         else {

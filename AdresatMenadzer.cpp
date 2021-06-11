@@ -169,6 +169,7 @@ void AdresatMenadzer::usunAdresata() {
                 plikZAdresatami.usunWybranaLinieWPliku(idUsuwanegoAdresata);
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
+                nastepneWolneIDAdresata = plikZAdresatami.pobierzidOstatniegoAdresata() + 1;
                 system("pause");
                 break;
             } else {
