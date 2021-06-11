@@ -17,6 +17,8 @@ public:
     static string pobierzLiczbe(string tekst, int pozycjaZnaku);
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     static bool czyPlikJestPusty(fstream &plik);
+    static int zwrocLiczbeZnajdujacaSieNaPoczatkuZmiennejString(string wers);
+    static int wczytajLiczbeCalkowita();
 };
 
 #endif // METODYPOMOCNICZE_H
