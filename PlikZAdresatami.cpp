@@ -110,3 +110,29 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
 
     return liniaZDanymiAdresata;
 }
+void PlikZAdresatami::usunWybranaLinieWPliku(const int ID_USUWANEGO_ADRESATA) {
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string liniaTekstu = "", nazwaTymczasowegoPlikuZAdresatami = "plikTymczasowy.txt";
+    int IDSprawdzanegoUzytkownika = 0;
+    bool wykonanoPierwszyWpisDoPlikuTymczasowego = false;
+
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI, ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami, ios::out | ios::app);
+
+    while(getline(odczytywanyPlikTekstowy,liniaTekstu)) {
+        IDSprawdzanegoUzytkownika = MetodyPomocnicze::zwrocLiczbeZnajdujacaSieNaPoczatkuZmiennejString(liniaTekstu);
+        if(IDSprawdzanegoUzytkownika == ID_USUWANEGO_ADRESATA)
+            continue;
+        else if(IDSprawdzanegoUzytkownika != ID_USUWANEGO_ADRESATA && wykonanoPierwszyWpisDoPlikuTymczasowego)
+            tymczasowyPlikTekstowy<<endl<<liniaTekstu;
+        else{
+            tymczasowyPlikTekstowy<<liniaTekstu;
+            wykonanoPierwszyWpisDoPlikuTymczasowego = true;
+        }
+    }
+    odczytywanyPlikTekstowy.close();
+    tymczasowyPlikTekstowy.close();
+
+    PlikTekstowy::usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
+    PlikTekstowy::zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU_Z_ADRESATAMI);
+}

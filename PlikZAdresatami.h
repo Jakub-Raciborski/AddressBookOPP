@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ public:
     vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void wyczyscDane();
     void dopiszAdresataDoPliku(Adresat adresat);
+    void usunWybranaLinieWPliku(const int ID_USUWANEGO_ADRESATA);
 
 };
 

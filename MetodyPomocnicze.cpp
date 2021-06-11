@@ -56,3 +56,28 @@ bool MetodyPomocnicze::czyPlikJestPusty(fstream &plik) {
     else
         return false;
 }
+int MetodyPomocnicze::zwrocLiczbeZnajdujacaSieNaPoczatkuZmiennejString(string wers) {
+    const int DLUGOSC_TEKSTU = wers.size();
+    string szukanaLiczba = "";
+    for(int i=0; i<DLUGOSC_TEKSTU; i++) {
+        if(wers[i] != '|')
+            szukanaLiczba += wers[i];
+        else
+            break;
+    }
+    return atoi(szukanaLiczba.c_str());
+}
+int MetodyPomocnicze::wczytajLiczbeCalkowita() {
+    string wejscie = "";
+    int liczba = 0;
+
+    while (true) {
+        getline(cin, wejscie);
+
+        stringstream myStream(wejscie);
+        if (myStream >> liczba)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return liczba;
+}

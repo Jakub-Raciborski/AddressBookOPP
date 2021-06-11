@@ -11,6 +11,7 @@ class KsiazkaAdresowa {
     AdresatMenadzer *adresatMenadzer;
     int IDZalogowanegoUzytkownika;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
+    bool nowyObiektAdresatMenadzerZostalUtworzony;
 
     void ustawIDZalogowanegoUzytkownika();
     void przetwarzajDecyzjeUzytkownika(char decyzja);
@@ -20,7 +21,7 @@ class KsiazkaAdresowa {
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
         : uzytkownikMenadzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami),
-          IDZalogowanegoUzytkownika(0) {
+          IDZalogowanegoUzytkownika(0), nowyObiektAdresatMenadzerZostalUtworzony(false) {
         adresatMenadzer = NULL;
     };
     ~KsiazkaAdresowa() {

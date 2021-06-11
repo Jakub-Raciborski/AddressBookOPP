@@ -12,8 +12,11 @@ void KsiazkaAdresowa::wyswietlMenuGlowne() {
         if(IDZalogowanegoUzytkownika == 0)
             uzytkownikMenadzer.wyswietlMenuGlowne();
         else {
-            adresatMenadzer = new AdresatMenadzer(NAZWA_PLIKU_Z_ADRESATAMI, IDZalogowanegoUzytkownika);
-            adresatMenadzer->wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+            if(!nowyObiektAdresatMenadzerZostalUtworzony) {
+                adresatMenadzer = new AdresatMenadzer(NAZWA_PLIKU_Z_ADRESATAMI, IDZalogowanegoUzytkownika);
+                adresatMenadzer->wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+                nowyObiektAdresatMenadzerZostalUtworzony = true;
+            }
             spytajUzytkownikaODzialanie();
         }
     }
@@ -36,11 +39,10 @@ void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
     case '4':
         adresatMenadzer->wyswietlWszystkichAdresatow();
         break;
-    /*case '5':
-        idUsunietegoAdresata = usunAdresata(adresaci);
-        idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+    case '5':
+        adresatMenadzer->usunAdresata();
         break;
-    case '6':
+    /*case '6':
         edytujAdresata(adresaci);
         break;*/
     case '7':
@@ -57,4 +59,5 @@ void KsiazkaAdresowa::wylogujUzytkownika() {
     adresatMenadzer->wylogujUzytkownika();
     delete adresatMenadzer;
     adresatMenadzer = NULL;
+    nowyObiektAdresatMenadzerZostalUtworzony = false;
 }
