@@ -42,9 +42,9 @@ void KsiazkaAdresowa::przetwarzajDecyzjeUzytkownika(char decyzja) {
     case '5':
         adresatMenadzer->usunAdresata();
         break;
-    /*case '6':
-        edytujAdresata(adresaci);
-        break;*/
+    case '6':
+        adresatMenadzer->edytujAdresata();
+        break;
     case '7':
         uzytkownikMenadzer.zmienHaslaZalogowanegoUzytkownika();
         break;
