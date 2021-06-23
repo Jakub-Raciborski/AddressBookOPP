@@ -14,7 +14,6 @@ class PlikZAdresatami {
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     vector<Adresat> adresaci;
     int idOstatniegoAdresata;
-    MetodyPomocnicze metodyPomocnicze;
 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
